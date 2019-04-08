@@ -4,9 +4,34 @@
 <html lang="en">
 <head>
 	<title>Frontenda</title>
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'frontenda.css' %}">
-	<!--<link rel="icon" sizes="192x192" href="">-->
+	<link rel="icon" sizes="192x192" href="/">
 </head>
 <body>
+    <div id="nav">
+      <a href="{% url 'frontendaClub:newPost' %}">
+        <div class="nav-side">
+          New Post
+        </div>
+      </a>
+      <a href="/?">
+        <div id="nav-title">
+          FRONTENDA
+        </div>
+      </a>
+      <a href="{% url 'frontendaClub:about' %}">
+        <div class="nav-side">
+          About Us
+        </div>
+      </a>
+    </div>
+
+    <script>
+
+    </script>
+
+  {% block content %}
+  {% endblock %}
 </body>
 </html>

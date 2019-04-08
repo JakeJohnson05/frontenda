@@ -1,4 +1,58 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+  <div id="home-container">
+    {% block nav %}
+    {% endblock %}
+    <div id="home-main">
+      {% for post in posts %}
+      <div class="single-post">
+        <div class="post-subject">
+          {{ post.subject }}
+        </div>
+        <hr color="black" size="3px">
+        <div class="post-body">
+          <div id="body-text">
+            <div name="body-disp" id="post-body-display">
+              <p>
+                {{ post.body }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div id="footer">
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    var adjustUrl = function() {
+      var obj = { 1: 'adjust' };
+      history.pushState(obj, 'homePage', '/');
+    }
+
+    var destroyHighlight = function() {
+
+      var urlLoc = window.location.href;
+
+      if (performance.navigation.type == 0 && document.referrer == 'http://localhost:8000/post' && urlLoc == 'http://localhost:8000/') {
+        var listedPosts = document.getElementsByClassName('single-post');
+        var firstPost = listedPosts[0];
+        firstPost.setAttribute("id", "test-high");
+      }
+      adjustUrl();
+    }
+
+    window.onload = function() { destroyHighlight() };
+
+  </script>
+
 {% endblock %}
+
+
+

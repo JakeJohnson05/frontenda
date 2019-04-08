@@ -1,4 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div id="new-post-page">
+  <div id="post-container">
+    <form id="post-form" method='post'>
+
+        {% csrf_token %}
+
+        <div class="form-slot">
+          SUBJECT:
+          <br><br>
+          {{ form.subject }}
+        </div>
+        <br>
+        <div class="form-slot">
+          BODY:
+          <br><br>
+          {{ form.body }}
+        </div>
+        <br>
+        <div class="form-slot">
+          <input id="form-submit" type="submit">
+        </div>
+    </form>
+  </div>
+</div>
+
 {% endblock %}
